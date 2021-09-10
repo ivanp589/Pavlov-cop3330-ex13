@@ -23,8 +23,8 @@ public class App
         int times = ask.comp();
         double total1 = math.calc(rate,years, prin, times);
         double total = math.rounds(total1);
-        out.println(String.format("$%.2f invested at %.2f " +
-                "for %d years compounded %d times per year is $%.2f.",prin,rate,years, times, total));
+        out.println(String.format("$%.2f invested at %.2f" +
+                "%% for %d years compounded %d times per year is $%.2f.",prin,rate,years, times, total));
         //out.println(String.format("%f ",total));
     }
 
@@ -34,7 +34,7 @@ public class App
     }
     private double rate(){
         out.print("What is the rate? ");
-        return in.nextDouble()/100;
+        return in.nextDouble();
     }
     private int years(){
         out.print("What is the number of years? ");
@@ -48,7 +48,7 @@ public class App
         double sum = 1;
 
         for(int x=0;x<(times*years);x++){
-            sum *=(1+(rate)/times);
+            sum *=(1+(rate/100)/times);
         }
         double calc = prin*(sum);
         out.println(String.format("this is  calc %f ", calc));
